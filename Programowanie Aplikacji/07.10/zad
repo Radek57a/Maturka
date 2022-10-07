@@ -19,7 +19,12 @@
             $opinia=$_POST['opinia'];
             $plik = './opinia.txt';
             file_put_contents($plik, $opinia,FILE_APPEND | LOCK_EX);
-
+        
+            $tab = explode(PHP_EOL,file_get_contents($plik));
+            foreach($tab as $t)
+            {
+                echo"<p>$t</p> ";
+            }
         }
     ?>
     
